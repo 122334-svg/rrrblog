@@ -6,8 +6,15 @@
     <description>Recent content on rrrblog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 15 Mar 2026 13:37:30 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2026 15:49:33 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The entire process of drug development</title>
+      <link>http://localhost:1313/posts/third-post/</link>
+      <pubDate>Sun, 15 Mar 2026 15:49:33 +0800</pubDate>
+      <guid>http://localhost:1313/posts/third-post/</guid>
+      <description>&lt;h2 id=&#34;第一部分简单说下药物研发的全流程&#34;&gt;第一部分：简单说下药物研发的全流程。&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/drug-dev-flow.png&#34; alt=&#34;药物研发全流程图&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;(1) 传统药物研发是一个极其漫长且成本高昂的过程，一款新药从概念到最终获批上市通常需要耗费10到15年的时间，且平均研发成本高达10亿至26亿美元。&lt;/p&gt;&#xA;&lt;p&gt;(2) 这一过程呈现出高度线性的特征，必须依次经历靶点识别与验证、苗头化合物发现（Hit Discovery）、先导化合物优化（Lead Optimization）、临床前测试以及漫长的多期临床试验。（这里面每一个概念都可以上网详细查询看看）&lt;/p&gt;&#xA;&lt;h2 id=&#34;第二部分计算机辅助药物研发&#34;&gt;第二部分：计算机辅助药物研发。&lt;/h2&gt;&#xA;&lt;p&gt;计算机主要辅助以下阶段：&lt;/p&gt;&#xA;&lt;p&gt;主要目的就是提速！降本增效。&lt;/p&gt;&#xA;&lt;h3 id=&#34;1靶点识别与验证&#34;&gt;（1）靶点识别与验证&lt;/h3&gt;&#xA;&lt;p&gt;方法：生物信息学、多组学数据、网络分析等。&lt;/p&gt;&#xA;&lt;p&gt;用途：发现新靶点、先进的 AI 模型（如 AlphaFold）能够极高精度地预测目标蛋白质的三维结构，为后续的药物设计奠定基础。&lt;/p&gt;&#xA;&lt;h3 id=&#34;2苗头化合物的发现与虚拟筛选&#34;&gt;（2）苗头化合物的发现与虚拟筛选&lt;/h3&gt;&#xA;&lt;p&gt;方法：分子对接、药效团建模等。&lt;/p&gt;&#xA;&lt;p&gt;解决痛点：大幅减少了需要在物理实验室中进行盲测的化合物数量，显著降低了早期筛选的时间和资金成本。&lt;/p&gt;&#xA;&lt;h3 id=&#34;3先导化合物优化与从头设计&#34;&gt;（3）先导化合物优化与从头设计&lt;/h3&gt;&#xA;&lt;p&gt;方法：AI生成模型、分子动力学MD（计算化学）。&lt;/p&gt;&#xA;&lt;h3 id=&#34;4临床前admet评估&#34;&gt;（4）临床前ADMET评估&lt;/h3&gt;&#xA;&lt;p&gt;方法：预测模型（主流：机器学习/深度学习）。&lt;/p&gt;&#xA;&lt;h3 id=&#34;5临床试验辅助&#34;&gt;（5）临床试验辅助&lt;/h3&gt;&#xA;&lt;p&gt;自行查询，有很多方面，如药物戒备等。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How to create a new blog</title>
       <link>http://localhost:1313/posts/second-post/</link>
