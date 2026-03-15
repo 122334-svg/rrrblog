@@ -23,3 +23,16 @@ Then, Speak freely through editing commands。
 open -a TextEdit content/posts/second-post.md
 ```
 
+Local Preview
+
+```bash
+hugo server -D
+```
+
+Publish and modify online
+```bash
+git add .
+git commit -m "update second post"
+git push
+```
+
