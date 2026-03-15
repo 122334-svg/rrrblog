@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on rrrblog</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on rrrblog</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 15 Mar 2026 13:37:30 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to create a new blog</title>
+      <link>http://localhost:1313/posts/second-post/</link>
+      <pubDate>Sun, 15 Mar 2026 13:37:30 +0800</pubDate>
+      <guid>http://localhost:1313/posts/second-post/</guid>
+      <description>&lt;p&gt;The code shown below is based on my computer path as a display。&lt;/p&gt;&#xA;&lt;p&gt;First, you need to enter the content.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd ~/Desktop/myblog&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Second, you can start to create a new blog by calling hugo.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new posts/second-post.md&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, Speak freely through editing commands。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;open -a TextEdit content/posts/second-post.md&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>http://localhost:1313/posts/hello-world/</link>
+      <pubDate>Sun, 15 Mar 2026 12:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <description>&lt;p&gt;这是我的第一篇博客文章。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

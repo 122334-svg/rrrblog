@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ .Site.Title }}</title>
+  <link rel="icon" type="image/jpeg" href="/favicon.jpg?v=4" />
+  <link rel="shortcut icon" href="/favicon.jpg?v=4" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-wrap" href="/">
+        <img class="brand-avatar" src="/images/avatar.jpg" alt="avatar" />
+        <span class="brand-text">{{ .Site.Title }}</span>
+      </a>
+      <nav class="nav">
+        <a href="/">首页</a>
+        <a href="#posts">文章</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <h1 class="hero-title">{{ .Site.Title }}</h1>
+        <p class="hero-desc">欢迎来到我的个人博客，这里记录我的想法、学习和生活。</p>
+      </div>
+    </section>
+
+    <section class="content-wrap" id="posts">
+      <div class="content-card">
+        <h2 class="section-title">最新文章</h2>
+        <ul class="post-list">
+          {{ range .Site.RegularPages.ByDate.Reverse }}
+            <li>
+              <a class="post-item" href="{{ .RelPermalink }}">
+                <span class="post-item-title">{{ .Title }}</span>
+                <div class="post-item-meta">{{ .Date.Format "2006-01-02 15:04" }}</div>
+              </a>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      © {{ now.Format "2006" }} {{ .Site.Title }} · Powered by Hugo
+    </div>
+  </footer>
+</body>
+</html>
