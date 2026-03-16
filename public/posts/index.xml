@@ -6,8 +6,15 @@
     <description>Recent content in Posts on rrrblog</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 15 Mar 2026 15:49:33 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2026 19:15:15 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The prediction of drug-target binding affinity（DTA）</title>
+      <link>http://localhost:1313/posts/forth-post/</link>
+      <pubDate>Mon, 16 Mar 2026 19:15:15 +0800</pubDate>
+      <guid>http://localhost:1313/posts/forth-post/</guid>
+      <description>&lt;h2 id=&#34;第一部分dta的发展&#34;&gt;第一部分：DTA的发展&lt;/h2&gt;&#xA;&lt;p&gt;（1）高通量筛选(High-Throughput Screening, HTS)&lt;/p&gt;&#xA;&lt;p&gt;核心逻辑：在生物或生化实验中，利用自动化设备对数以万计的化学化合物进行大规模的靶点相互作用测试。&lt;/p&gt;&#xA;&lt;p&gt;当前阶段痛点：实验成本极其高昂且耗时。目前存在数以百万计的可用药物化合物和数千个潜在靶点蛋白，传统的 HTS 根本无法覆盖如此庞大的配对搜索空间。&lt;/p&gt;&#xA;&lt;p&gt;（2）分子对接（molecular docking）&lt;/p&gt;&#xA;&lt;p&gt;核心逻辑：基于受体（蛋白质靶点）和配体（药物分子）精确的三维 (3D) 晶体结构，计算其结合姿态 (Binding Pose)，并使用物理或经验打分函数来预测结合亲和力。&lt;/p&gt;&#xA;&lt;p&gt;当前阶段痛点：严重依赖蛋白质和化合物精确的 3D 结构。然而，获取许多靶点蛋白的高分辨率 3D 结构非常困难。此外，对接过程对结构极度敏感，微小的构象变化会导致结果产生巨大差异，因此不仅计算开销大，且不适合探索具有相似结构的未知靶点空间。&lt;/p&gt;&#xA;&lt;p&gt;（3）传统机器学习&lt;/p&gt;&#xA;&lt;p&gt;核心逻辑：假设药物与靶点之间的亲和力可以通过人工设计的特征描述符（Descriptors）来预测。通过提取药物的分子指纹和蛋白质的理化/序列性质，送入随机森林 (RF)、支持向量机 (SVM) 或多重线性回归 (MLR) 等模型预测打分。&lt;/p&gt;&#xA;&lt;p&gt;当前阶段痛点：无法自动提取高阶的隐藏特征。模型性能严重依赖于领域专家手工构建的特征（Feature Engineering），在这个中间降维过程中容易丢失关键的分子拓扑或空间信息。同时，一些模型仅基于药物特征构建，只能探索药物空间，而无法泛化到未知的靶点空间。&lt;/p&gt;&#xA;&lt;p&gt;（4）深度学习&lt;/p&gt;&#xA;&lt;p&gt;核心逻辑：将特征表征提取和目标值预测无缝集成在同一个架构中。可以直接将药物的 SMILES 字符串或分子图，以及蛋白质的氨基酸序列或接触图（Contact Map）输入到 CNN、RNN、GCN 或 Transformer 等网络中，模型会自动学习深层表征。&lt;/p&gt;&#xA;&lt;p&gt;当前阶段的痛点：可解释性差、泛化能力差等（列举的这两个痛点应该是现在DL领域普遍面临的问题）&lt;/p&gt;&#xA;&lt;h2 id=&#34;第二部分用于dta的dl模型面临的部分挑战&#34;&gt;第二部分：用于DTA的DL模型面临的部分挑战&lt;/h2&gt;&#xA;&lt;p&gt;Ps：我这边只列于了后面要用到的一些痛点，非整个DTA领域的痛点。&lt;/p&gt;&#xA;&lt;p&gt;（1）深层交互丢失&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;&amp;ldquo;Current DTI prediction methods typically develop a single fusion module, which often integrates features through concatenation or weighting. This strategy struggles to capture deep interactions&amp;hellip; and easily loses critical interaction information.&amp;rdquo;&#xA;（cite：Cao Z, Xie J, Xu J, Li B. Cross-Modal Interaction-Aware Progressive Fusion Network for Drug-Target Interaction Prediction. J Chem Inf Model. 2025 Oct 13;65(19):10713-10726. doi: 10.1021/acs.jcim.5c01429. Epub 2025 Sep 19. PMID: 40970765.）&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>The entire process of drug development</title>
       <link>http://localhost:1313/posts/third-post/</link>
