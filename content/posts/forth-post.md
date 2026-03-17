@@ -32,9 +32,26 @@ title = 'The prediction of drug-target binding affinity（DTA）（updating）'
 
 当前阶段的痛点：可解释性差、泛化能力差等（列举的这两个痛点应该是现在DL领域普遍面临的问题）
 
-## 第二部分：用于DTA的DL模型面临的部分挑战
+## 第二部分：DTA领域遇到的挑战
 
-Ps：我这边只列于了后面要用到的一些痛点，非整个DTA领域的痛点。
+下面结论据不完全统计。
+
+（1）泛化能力不够强
+
+很多模型在常见 benchmark 上分数很高，但一旦换成新靶点、新骨架、低相似度样本，或者采用更严格的数据切分，性能就会明显下降。
+
+（2）模型离真实结合物理过程还较远
+
+DTA 不是简单的“药物图 + 蛋白序列 -> 一个数”。真实结合过程涉及蛋白柔性、诱导契合、口袋构象变化、溶剂效应、熵、甚至结合/解离动力学。但很多现有方法仍然主要依赖静态序列或单一结构快照，因此即使拟合了数据，也未必真的学到了可迁移的结合机制。这也是为什么“从静态表征走向动态、机制驱动建模”被认为是长期瓶颈。
+
+（3）数据与标签本身不够可靠
+
+DTA 的标签往往来自不同实验体系和条件，像IC50、Ki、Kd之间并不完全等价；不同assay、批次、实验噪声、负样本构造方式，都会把“真实亲和力”污染成一个很嘈杂的监督信号。再加上高质量数据总体仍然稀缺、覆盖不均衡，模型很容易学到偏差而不是规律。因此，数据稀缺、标签噪声、异质性和不确定性校准，是第三个顶层问题。
+
+
+## 第三部分：用于DTA的DL模型面临的部分更细化的挑战
+
+Ps：我这边只列于了后面要用到的一些痛点，也是这些后续工作的重点攻克的问题。
 
 （1）深层交互丢失
 
@@ -46,11 +63,13 @@ Ps：我这边只列于了后面要用到的一些痛点，非整个DTA领域的
 
 现有的 DTA 预测模型通常采用后期特征拼接（Late Concatenation）作为单一的融合策略。这个痛点关键在于之前的DTA模型的“全局池化”发生在了“特征融合”之前。当你把拥有 3D 空间结构的蛋白质压缩成一个 1D 向量时，里面具体的“口袋凹槽”、“氢键供体/受体位置”就被抹平了。此时再去和药物拼接，模型根本无法建立“药物的羟基到底是对准了靶点的哪一个氨基酸”这种深层空间对应关系。这就是文献所说的 "loses critical interaction information"。
 
-（2）“黑盒”、可解释性问题
+（2）弱监督下的宏观定位与背景噪声干扰（信号稀释）
 
 > *"Predicting drug-target interactions (DTI) with graph neural networks (GNNs) is hindered by their lack of interpretability... Nevertheless, adoption of GNNs in drug discovery remains limited due to their 'black-box' nature and the inability to provide chemically intuitive explanations for predictions."
 
 > cite：Mahindran, M., Liu, Q., Kadambalithaya, V. M., & Kalinina, O. V. (2026). Explainability methods from machine learning detect important drugs’ atoms in drug-target interactions[Preprint]. bioRxiv
+
+这个问题其实就是上面的标签噪声问题。
 
 深层原因（数据局限）：实验数据往往只能提供全局的亲和力标签，缺乏原级/残基级别的微观结合位点标注（即弱监督困境）。传统的网络架构在面对这种数据时，只能进行粗暴的“全局特征拼接 -> 全局标签预测”，彻底丢失了特征溯源的能力。
 
