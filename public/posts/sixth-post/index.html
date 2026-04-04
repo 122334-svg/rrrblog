@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The development process of drug generation using modern technology - rrrblog</title>
+  <link rel="icon" type="image/jpeg" href="/favicon.jpg?v=4" />
+  <link rel="shortcut icon" href="/favicon.jpg?v=4" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand-wrap" href="/">
+        <img class="brand-avatar" src="/images/avatar.jpg" alt="avatar" />
+        <span class="brand-text">rrrblog</span>
+      </a>
+      <nav class="nav">
+        <a href="/">首页</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="content-card">
+        <h1 class="post-title">The development process of drug generation using modern technology</h1>
+        <div class="post-meta">2026-04-04 13:12</div>
+        <div class="post-content">
+          <p>“When a deep generative model has been designed, the chemist is not involved at all in the generation of drug-like molecules; only data and computational resources are needed”</p>
+<h2 id="第一部分发展历程">第一部分：发展历程</h2>
+<p>（1）早期阶段：实验驱动的药物发现与先导优化</p>
+<p>传统药物发现主要依赖实验去寻找和优化 lead molecules，流程长、成本高。据文献统计，开发一个新药平均需要约 12 年、花费约 26 亿美元。（新药研发的流程具体可见The entire process of drug development这篇blog）</p>
+<p>（2）第二阶段：传统 CADD——从“做实验找药”到“在已有库里筛药”</p>
+<p>传统 CADD 方法广泛采用 virtual screening (VS)、scaffold hopping、molecular docking、pharmacophore modeling 等手段。</p>
+<p>· Virtual screening (VS)​ 是一种通过大规模计算筛选化合物库，快速识别出可能与特定靶点结合的先导化合物的方法。</p>
+<p>· Scaffold hopping​ 是通过改变先导化合物的核心骨架结构，以获得具有新颖结构、更优性质的新分子的策略。</p>
+<p>· Molecular docking​ 是一种基于靶点和配体三维结构的计算模拟方法，用于预测两者间的结合模式和亲和力。</p>
+<p>· Pharmacophore modeling​ 是一种抽象化方法，它归纳出活性分子所必需的药效特征（如氢键供体、疏水区）及其空间排列，用于指导药物设计。</p>
+<p>这个方法的瓶颈：化学空间太大，传统方法很难真正有效遍历。（化学空间：指的是所有可能存在的、符合化学规则的分子的集合，这个集合被想象成一个多维空间，其中每一个维度代表一个分子特征或性质（如分子量、脂水分配系数、特定官能团的数量、三维形状等），而空间中的每一个点则对应一个具有特定特征组合的潜在分子。）</p>
+<p>（3）第三阶段：ML/DL 先进入“辅助筛选与预测”</p>
+<p>不是一上来就生成。早期在 drug generation 里面运用的方法是运用ML/DL的手段缩短研发的某些流程所用的时间（如活性/性质预测、虚拟筛选提效、QSAR、排序与筛选）</p>
+<p>· ML-driven QSAR 改善虚拟筛选</p>
+<p>· ML-assisted directed evolution 改善蛋白工程</p>
+<p>（4）第四阶段：深度生成模型真正把重点从“筛”转到“造”</p>
+<p>de novo design 和 VS 的根本区别在于，VS 是在已有候选库里找分子，而 de novo design 是直接从头生成自然界或数据库中并不存在的新生物实体。</p>
+<p>相比传统 CADD 方法，深度生成模型可以绕开化学家经验的限制，更高效地产生 novel、unique、chemically valid molecules with desired properties。</p>
+<h2 id="第二部分领域任务分类">第二部分：领域任务分类</h2>
+<p>（1）Small molecule generation</p>
+<p>· Target-agnostic molecule design 这类任务不直接给定具体蛋白靶标条件，重点是从头生成有效、稳定、具有药物样性的分子。（缺乏靶标特异性）</p>
+<p>（子分类：unconditional generation不加条件，直接生成新分子 / property-conditioned generation按 QED、logP、SA、稳定性等性质去控制生成 / scaffold/motif-aware generation给定片段或结构约束，继续补全或扩展）</p>
+<p>· Target-aware molecule design  这类任务是给定目标蛋白信息，再生成对该靶标可能有高结合能力的分子。</p>
+<p>（子分类：Ligand-based drug design (LBDD) / Structure-based drug design (SBDD)）</p>
+<p>LBDD：输入多是蛋白氨基酸序列或已有 ligand 信息，本质是利用已知 ligand / sequence 特征去生成相似或相关的新分子，优点是当 3D 结构不可得时仍可用，缺点是novelty 和几何真实性受限，因为它主要从已有结合信息中学。</p>
+<p>SBDD：输入是蛋白 3D 结构 / binding pocket，本质是利用几何和空间相互作用信息来生成分子，当 target 的 3D 结构可用时，BIB 综述明确说一般更偏向 SBDD，因为它显式考虑关键 3D 信息。（这也是目前做的方向）</p>
+<p>· Molecular conformation generation 这里重点不是“生成一个新分子的拓扑”，而是“给定分子，生成它合理的 3D 构象”。（小的领域）</p>
+<p>（2）Protein generation</p>
+<p>· Protein representation learning /  Structure prediction 不是纯生成任务，是生成的一部份</p>
+<p>· Sequence generation / sequence design 给定某种结构、功能或上下文约束，生成合理的蛋白氨基酸序列。</p>
+<p>· Backbone design</p>
+<p>（子分类：context-free generation：不给定输入，直接生成多样的 protein structures / context-given generation：类似 inpainting，给定 motif / 局部残基，再补全 backbone）</p>
+<p>· Antibody generation</p>
+<p>· Peptide design</p>
+<p>（子分类：Peptide generation 从头生成新的 peptide / Peptide–protein interaction 给定 peptide–protein pair，预测或建模它们的相互作用/binding site / Peptide representation learning学习 peptide 的 sequence + structure 表示，服务于下</p>
+<p>游预测/设计任务 / Peptide sequencing 根据 mass spectra 去恢复氨基酸序列，这是 peptide 方向里比较特殊的一类“de novo sequencing”任务）</p>
+<h2 id="第三部分模型技术演化">第三部分：模型技术演化</h2>
+<p>（1）分子表示：</p>
+<p>fingerprint → SMILES / graph → 更结构化表示</p>
+<p>具体关于这些representation form 如何被计算机识别、进行后续运算可以仔细看看review，写的比较详细了</p>
+<p>（2）generative model</p>
+<p>RNN/VAE/GAN/Flow → Transformer/Diffusion</p>
+<p>这几个model的基本原理可以自行看视频学习，这里不再赘述</p>
+
+        </div>
+        <a class="back-link" href="/">← 返回首页</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      © 2026 rrrblog · Powered by Hugo
+    </div>
+  </footer>
+</body>
+</html>
