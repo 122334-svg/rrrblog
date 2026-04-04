@@ -1,7 +1,7 @@
 +++
 date = '2026-03-16T19:15:15+08:00'
 draft = false
-title = 'The prediction of drug-target binding affinity（DTA）（updating）'
+title = 'The prediction of drug-target binding affinity（DTA）'
 +++
 
 有关DTA的基本概念/相关基础知识下面不做阐述。下面做介绍的是我觉得比较重要/有趣的内容。
